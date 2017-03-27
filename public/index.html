@@ -10,8 +10,9 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     </head>
-    <body>
+    <body style="overflow: hidden">
         <div class="container">
+
             <!--<div id="nickWrap">
                 <form id="setNick" class="form-signin">
                     <h3 class="form-signin-heading">Insira um username</h3>
@@ -20,14 +21,14 @@
                     <h5 id="nickError"></h5>
                 </form>
             </div>-->
-            <div id="contentWrap">
+            <div id="contentWrap"«>
                 <div id="chatWrap">
                     <ul id="messages"><li>Testeasduajsdkajsdjk<li>Testeasduajsdkajsdjk</ul>
                     <form action="" id="chatform">
                         <input id="m" autocomplete="off"><button id="chatbutton">Send</button>
                     </form>
                 </div>
-                <div id="button">-</div>
+                <img src="images/msg.png" id="button"></div>
                 <!--<div id="users"><img src="images/on.png" id="imagem" alt="icon" style="width:10px;height:10px;">asdasjoda<br>
                 <img src="images/on.png" id="imagem" alt="icon" style="width:10px;height:10px;">asdasjoda<br></div>
                 <div id="logout"><button onclick="Logout();">Logout</button></div>-->
@@ -38,6 +39,7 @@
         <script>
 
             var socket = io();
+
 
             function Logout(){
                 window.location.reload();
@@ -66,13 +68,7 @@
                 $('#users').html(html);
             })
             $("#button").click(function(){
-                if($(this).html() == "-"){
-                    $(this).html("+");
-                }
-                else{
-                    $(this).html("-");
-                }
-                $("#chatWrap").slideToggle('slow');
+                $("#chatWrap").slideToggle(280);
             });
 
 
