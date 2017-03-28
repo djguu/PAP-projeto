@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -35,12 +35,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-1" id="chatWrap">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         CHAT
+                        <span id="minimize" class="glyphicon glyphicon-minus minimize"></span>
                     </div>
-                    <div class="panel-body" id="bby" style="height: 400px;overflow-y: auto;">
+                    <div class="panel-body" id="chatmsg">
                         <ul class="media-list" id="mensagem">
                             <!-- Mensagem -->
                         </ul>
@@ -57,15 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div id="chatWrap">
-                <ul id="messages">
-                    <li>Testeasduajsdkajsdjk<li>Testeasduajsdkajsdjk
-                </ul>
-                <form action="" id="chatform2">
-                    <input id="m" autocomplete="off"><button id="chatbutton">Send</button>
-                </form>
-            </div>
-            <img src="images/msg.png" id="chat">
+            <img src="images/msg.png" id="chat" class="minimize">
             <!--<div id="logout"><button onclick="Logout();">Logout</button></div>-->
         </div>
         
@@ -112,12 +105,20 @@
         socket.on('usernames', function(data){
             var html = '';
             for(i=0; i < data.length; i++){
-                html += '<li class="media"><div class="media-body"><div class="media"><a class="pull-left" href="#"><img class="media-object img-circle" style="max-height:15px;" src="images/on.png" /></a><div class="media-body" ><h5>' + data[i] + '</h5></div></div></div></li>'
+                html += '<li class="media">\
+                        <div class="media-body">\
+                        <div class="media">\
+                        <a class="pull-left" href="#">\
+                        <img class="media-object img-circle" style="max-height:15px;" src="images/on.png" />\
+                        </a>\
+                        <div class="media-body" >\
+                        <h5>' + data[i] + '</h5>\
+                        </div></div></div></li>'
             }
             $('#user').html(html);
         })
         
-        $("#chat").click(function(){
+        $(".minimize").click(function(){
             $("#chatWrap").slideToggle(280);
         });
 
@@ -148,7 +149,7 @@
                             </div> \
                         </li>'
             $('#mensagem').append(txt);
-            $("#bby").scrollTop(($("#bby")[0].scrollHeight)+100);
+            $("#chatmsg").scrollTop(($("#chatmsg")[0].scrollHeight)+100);
         });
 
         /*socket.on('disconnect', function(){
