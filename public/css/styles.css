@@ -10,6 +10,10 @@ body{
     top: 13px;
 }
 
+#open{
+    color: rgb(70, 184, 218);
+}
+
 #chat{
     width: 50px;
     cursor:pointer;
@@ -20,15 +24,15 @@ body{
 
 #chatmsg {
     height: 360px;
-    width: 320px;
+    width: 100%;
     overflow: hidden;
     overflow-y: auto;
 }
 
 .media-body{
     word-wrap: break-word;
-    max-width: 340px;
-    width: 340px;
+    max-width: 400px;
+    width: 400px;
 }
 #chatWrap{
     /*height: 150px;*/
@@ -37,6 +41,8 @@ body{
     right: 0;
     padding:0;
     margin:0;
+    
+    /*display: none;*/
 }
 #nickWrap{
     width: 300px;
@@ -62,7 +68,7 @@ body{
 
 .sidenav {
     height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
+    width: 250px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0;
@@ -71,29 +77,14 @@ body{
     transition: 0.5s; /*second transition effect to slide in the sidenav */
 }
 
-/* The navigation menu links */
-.sidenav li {
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+#open{
+    display: none;
 }
 
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 768px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+@media screen and (max-width: 768px) {
+    .sidenav {width: 0}
+    #open{display: block}
 }

@@ -15,29 +15,29 @@
                 <form id="setNick" class="form-signin">
                     <h3 class="form-signin-heading">Insira um username</h3>
                     <input size=35 id="nickname" class="form-control"></input><br>
-                    <input type="submit" class="btn btn-lg btn-primary btn-block"></input>
+                    <input type="submit" class="btn btn-lg btn-info btn-block"></input>
                     <h5 id="nickError"></h5>
                 </form>
         </div>
         <div id="contentWrap">
-            <span style="font-size:30px;cursor:pointer" onclick="sidenavToggle()" id="open">&#9776; Utilizadores</span>
+            <span style="font-size:30px;cursor:pointer" onclick="sidenavToggle()" id="open">&#9776;</span>
 
             <div class="sidenav" id="tt">
-                <div class="panel panel-primary">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         ONLINE USERS
                     </div>
                     <div class="panel-body">
-                        <ul class="media-list"  id="user" >
+                        <ul class="media-list"  id="user" style="cursor: default" >
                             <!-- Users -->
                         </ul>
 
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-1" id="chatWrap">
+            <div class="col-md-4 col-sm-4" id="chatWrap">
                 <div class="panel panel-info">
-                    <div class="panel-heading">
+                    <div class="panel-heading" style="cursor: default">
                         CHAT
                         <span id="minimize" class="glyphicon glyphicon-minus minimize"></span>
                     </div>
@@ -80,7 +80,16 @@
                 document.getElementById("open").style.marginLeft = "250px";
             }
         }
-
+        $( window ).resize(function() {
+            if ($(window).width() > 768) {
+                document.getElementById("tt").style.width = "250px";
+                document.getElementById("open").style.marginLeft = "250px";
+            }
+            else{
+                document.getElementById("tt").style.width = "0px";
+                document.getElementById("open").style.marginLeft = "0px";
+            }
+        });
 
         function Logout(){
             window.location.reload();
@@ -108,9 +117,7 @@
                 html += '<li class="media">\
                         <div class="media-body">\
                         <div class="media">\
-                        <a class="pull-left" href="#">\
-                        <img class="media-object img-circle" style="max-height:15px;" src="images/on.png" />\
-                        </a>\
+                        <img class="pull-left" class="media-object img-circle" style="max-height:15px;" src="images/on.png" />\
                         <div class="media-body" >\
                         <h5>' + data[i] + '</h5>\
                         </div></div></div></li>'
