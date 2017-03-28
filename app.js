@@ -22,12 +22,15 @@ io.on('connection', function(socket){
 		if(nicknames.indexOf(data) != -1){
 			callback(false);
 		}
-		else{
+		else if(nicknames.length < 5){
 			callback(true);
 			socket.nickname = data;
 			nicknames.push(socket.nickname);
 			updateNicknames();
 			console.log('Utilizador ', socket.nickname, ' juntou-se ao chat')
+		}
+		else{
+			callback
 		}
 	});
 

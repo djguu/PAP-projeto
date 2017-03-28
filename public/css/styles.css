@@ -42,7 +42,7 @@ body{
     padding:0;
     margin:0;
     
-    /*display: none;*/
+    display: none;
 }
 #nickWrap{
     width: 300px;

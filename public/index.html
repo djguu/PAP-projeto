@@ -22,13 +22,13 @@
         <div id="contentWrap">
             <span style="font-size:30px;cursor:pointer" onclick="sidenavToggle()" id="open">&#9776;</span>
 
-            <div class="sidenav" id="tt">
+            <div class="sidenav" id="tt"  style="cursor: default">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         ONLINE USERS
                     </div>
                     <div class="panel-body">
-                        <ul class="media-list"  id="user" style="cursor: default" >
+                        <ul class="media-list"  id="user">
                             <!-- Users -->
                         </ul>
 
@@ -95,14 +95,18 @@
             window.location.reload();
         };
 
-        $('#contentWrap').show(); 
+        //$('#contentWrap').show(); 
 
         $('#setNick').submit(function(e){
             e.preventDefault();
             socket.emit('novo user', $('#nickname').val(), function(data){
+                alert(data);
                 if(data){
                     $('#nickWrap').hide();
                     $('#contentWrap').show();
+                }
+                else if (data =='full'){
+                    alert('asdasd');
                 }
                 else{
                     $('#nickError').html('Esse utilizador ja foi usado, tente novamente');
@@ -127,6 +131,9 @@
         
         $(".minimize").click(function(){
             $("#chatWrap").slideToggle(280);
+            if(document.getElementById("tt").style.width == "250px"){
+                sidenavToggle();
+            }
         });
 
 
