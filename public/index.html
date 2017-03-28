@@ -11,84 +11,148 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     </head>
     <body style="overflow: hidden">
-        <div class="container">
-
-            <!--<div id="nickWrap">
+        <div id="nickWrap">
                 <form id="setNick" class="form-signin">
                     <h3 class="form-signin-heading">Insira um username</h3>
                     <input size=35 id="nickname" class="form-control"></input><br>
                     <input type="submit" class="btn btn-lg btn-primary btn-block"></input>
                     <h5 id="nickError"></h5>
                 </form>
-            </div>-->
-            <div id="contentWrap"«>
-                <div id="chatWrap">
-                    <ul id="messages"><li>Testeasduajsdkajsdjk<li>Testeasduajsdkajsdjk</ul>
-                    <form action="" id="chatform">
-                        <input id="m" autocomplete="off"><button id="chatbutton">Send</button>
-                    </form>
-                </div>
-                <img src="images/msg.png" id="button"></div>
-                <!--<div id="users"><img src="images/on.png" id="imagem" alt="icon" style="width:10px;height:10px;">asdasjoda<br>
-                <img src="images/on.png" id="imagem" alt="icon" style="width:10px;height:10px;">asdasjoda<br></div>
-                <div id="logout"><button onclick="Logout();">Logout</button></div>-->
-            </div>
         </div>
-        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-        <script>
+        <div id="contentWrap">
+            <span style="font-size:30px;cursor:pointer" onclick="sidenavToggle()" id="open">&#9776; Utilizadores</span>
 
-            var socket = io();
+            <div class="sidenav" id="tt">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        ONLINE USERS
+                    </div>
+                    <div class="panel-body">
+                        <ul class="media-list"  id="user" >
+                            <!-- Users -->
+                        </ul>
 
-
-            function Logout(){
-                window.location.reload();
-            };
-            $('#contentWrap').show(); 
-            /*
-            $('#setNick').submit(function(e){
-                e.preventDefault();
-                socket.emit('novo user', $('#nickname').val(), function(data){
-                    if(data){
-                        $('#nickWrap').hide();
-                        $('#contentWrap').show();
-                    }
-                    else{
-                        $('#nickError').html('Esse utilizador ja foi usado, tente novamente');
-                    }
-                });
-                 $('#nickname').val('');
-            });*/
-
-            socket.on('usernames', function(data){
-                var html = '';
-                for(i=0; i < data.length; i++){
-                    html += '<img src="images/on.png" id="imagem" alt="icon" style="width:10px;height:10px;">&nbsp; ' + data[i] + '<br>'
-                }
-                $('#users').html(html);
-            })
-            $("#button").click(function(){
-                $("#chatWrap").slideToggle(280);
-            });
-
-
-            $('#chatform').submit(function(){
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-                $("#messages").scrollTop(($("#messages")[0].scrollHeight)+100);
-            console.log($("#messages")[0].scrollHeight);
-            console.log($("#messages").scrollTop());
-                return false;
-            });
-
-            socket.on('chat message', function(msg){
-                console.log(msg.msn);
-                $('#messages').append('<li> <b>' + msg.nick + ': </b>' + msg.msn);
-            });
-
-            socket.on('disconnect', function(){
-                alert('Pedimos desculpa, o servidor desconectou-se');
-            });
-        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        CHAT
+                    </div>
+                    <div class="panel-body" id="bby" style="height: 400px;overflow-y: auto;">
+                        <ul class="media-list" id="mensagem">
+                            <!-- Mensagem -->
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <form action="" id="chatform">
+                                <input id="mm" type="text" autocomplete="off" class="form-control" placeholder="Enter Message" /> 
+                            </form>
+                            <span class="input-group-btn">
+                                <button id="bt" class="btn btn-info" type="submit">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="chatWrap">
+                <ul id="messages">
+                    <li>Testeasduajsdkajsdjk<li>Testeasduajsdkajsdjk
+                </ul>
+                <form action="" id="chatform2">
+                    <input id="m" autocomplete="off"><button id="chatbutton">Send</button>
+                </form>
+            </div>
+            <img src="images/msg.png" id="chat">
+            <!--<div id="logout"><button onclick="Logout();">Logout</button></div>-->
+        </div>
+        
     </body>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+
+        var socket = io();
+
+        function sidenavToggle(){
+            if(document.getElementById("tt").style.width == "250px"){
+                document.getElementById("tt").style.width = "0";
+                document.getElementById("open").style.marginLeft = "0";
+            }
+            else{
+                 document.getElementById("tt").style.width = "250px";
+                document.getElementById("open").style.marginLeft = "250px";
+            }
+        }
+
+
+        function Logout(){
+            window.location.reload();
+        };
+
+        $('#contentWrap').show(); 
+
+        $('#setNick').submit(function(e){
+            e.preventDefault();
+            socket.emit('novo user', $('#nickname').val(), function(data){
+                if(data){
+                    $('#nickWrap').hide();
+                    $('#contentWrap').show();
+                }
+                else{
+                    $('#nickError').html('Esse utilizador ja foi usado, tente novamente');
+                }
+            });
+             $('#nickname').val('');
+        });
+
+        socket.on('usernames', function(data){
+            var html = '';
+            for(i=0; i < data.length; i++){
+                html += '<li class="media"><div class="media-body"><div class="media"><a class="pull-left" href="#"><img class="media-object img-circle" style="max-height:15px;" src="images/on.png" /></a><div class="media-body" ><h5>' + data[i] + '</h5></div></div></div></li>'
+            }
+            $('#user').html(html);
+        })
+        
+        $("#chat").click(function(){
+            $("#chatWrap").slideToggle(280);
+        });
+
+
+        $('#bt').click(function(){
+           $('#chatform').submit(); 
+        });
+
+        $('#chatform').submit(function(){
+            if($('#mm').val() !=  ""){
+                socket.emit('chat message', $('#mm').val());
+                $('#mm').val('');
+            }
+            return false;
+        });
+
+        socket.on('chat message', function(msg){
+            console.log(msg.msn);
+            var txt = '<li class="media"> \
+                            <div class="media-body"> \
+                                <div class="media"> \
+                                    <b>' + msg.nick + ':</b> \
+                                    <div class="media-body" > \
+                                        ' + msg.msn + ' \
+                                        <hr /> \
+                                    </div> \
+                                </div> \
+                            </div> \
+                        </li>'
+            $('#mensagem').append(txt);
+            $("#bby").scrollTop(($("#bby")[0].scrollHeight)+100);
+        });
+
+        /*socket.on('disconnect', function(){
+            alert('Pedimos desculpa, o servidor desconectou-se');
+        });*/
+    </script>
 </html>

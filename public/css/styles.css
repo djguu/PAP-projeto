@@ -7,7 +7,7 @@ body{
     font: 13px Helvetica, Arial;
 }
 
-#button{
+#chat{
     width: 50px;
     cursor:pointer;
     bottom: 0;
@@ -15,7 +15,7 @@ body{
     position: fixed;
 }
 
-#chatform{ 
+#chatform2{ 
     background: #000; 
     padding: 3px; 
     position: fixed;
@@ -44,7 +44,6 @@ body{
     position:absolute;
     bottom: 110px;
     right: 0;
-    display:none;
     padding:0;
     margin:0;
 }
@@ -86,23 +85,44 @@ body{
 #messages li:nth-child(odd){ 
     background: #eee; }
 
-body {
-    font: small sans-serif;
+
+
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /*second transition effect to slide in the sidenav */
 }
-#page {
-    margin-left: 200px;
-    background-color: #F0F0F0;
+
+/* The navigation menu links */
+.sidenav li {
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
 }
-#maincontent {
-    float: right;
-    width: 100%;
+
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
-#menuleftcontent {
-    float: left;
-    width: 200px;
-    margin-left: -200px;
-    background-color: #CCCCCC;
-}
-#clearingdiv {
-    clear: both;
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
