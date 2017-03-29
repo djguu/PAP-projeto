@@ -14,7 +14,7 @@
         <div id="nickWrap">
                 <form id="setNick" class="form-signin">
                     <h3 class="form-signin-heading">Insira um username</h3>
-                    <input size=35 id="nickname" class="form-control"></input><br>
+                    <input size=35 id="nickname" autocomplete="off" class="form-control"></input><br>
                     <input type="submit" class="btn btn-lg btn-info btn-block"></input>
                     <h5 id="nickError"></h5>
                 </form>
@@ -66,126 +66,6 @@
 
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-        $(function(){
-            $('#nickname').focus();
-
-            var socket = io();
-
-            $('#open').click(function(){
-                sidenavToggle();
-            })
-
-            function sidenavToggle(){
-                if ($(window).width() <= 768) {
-                    if(document.getElementById("tt").style.width == "250px"){
-                        document.getElementById("tt").style.width = "0";
-                        document.getElementById("open").style.marginLeft = "0";
-                    }
-                    else{
-                        document.getElementById("tt").style.width = "250px";
-                        document.getElementById("open").style.marginLeft = "250px";
-                    }
-                }
-                else{
-                    document.getElementById("tt").style.width = "250px";
-                    document.getElementById("open").style.marginLeft = "250px";
-                }
-            }
-            $( window ).resize(function() {
-                if ($(window).width() > 768) {
-                    document.getElementById("tt").style.width = "250px";
-                    document.getElementById("open").style.marginLeft = "250px";
-                    $('#open').css('display','none');
-                }
-                else{
-                    document.getElementById("tt").style.width = "0px";
-                    document.getElementById("open").style.marginLeft = "0px";
-                    $('#open').css('display','block');
-                }
-            });
-
-            function Logout(){
-                window.location.reload();
-            };
-
-            //$('#contentWrap').show(); 
-
-            $('#setNick').submit(function(e){
-                e.preventDefault();
-                if($('#nickname').val() != ""){
-                    socket.emit('novo user', $('#nickname').val(), function(data){
-                        if(data){
-                            $('#nickWrap').hide();
-                            $('#contentWrap').show();
-                        }
-                        else if (data =='full'){
-                            alert('asdasd');
-                        }
-                        else{
-                            $('#nickError').html('Esse utilizador ja foi usado, tente novamente');
-                        }
-                    });
-                }
-                
-                $('#nickname').val('');
-            });
-
-            socket.on('usernames', function(data){
-                var html = '';
-                for(i=0; i < data.length; i++){
-                    html += '<li class="media">\
-                            <div class="media-body">\
-                            <div class="media">\
-                            <img class="pull-left" class="media-object img-circle" style="max-height:15px;" src="images/on.png" />\
-                            <div class="media-body" >\
-                            <h5>' + data[i] + '</h5>\
-                            </div></div></div></li>'
-                }
-                $('#user').html(html);
-            })
-            
-            $(".minimize").click(function(){
-                $("#chatWrap").slideToggle(280);
-                if(document.getElementById("tt").style.width == "250px"){
-                    sidenavToggle();
-                }
-            });
-
-
-            $('#bt').click(function(){
-                $('#chatform').submit(); 
-            });
-
-            $('#chatform').submit(function(){
-                if($('#mm').val() !=  ""){
-                    socket.emit('chat message', $('#mm').val());
-                    $('#mm').val('');
-                }
-                return false;
-            });
-
-            socket.on('chat message', function(msg){
-                console.log(msg.msn);
-                var txt = '<li class="media"> \
-                                <div class="media-body"> \
-                                    <div class="media"> \
-                                        <b>' + msg.nick + ':</b> \
-                                        <div class="media-body" > \
-                                            ' + msg.msn + ' \
-                                            <hr /> \
-                                        </div> \
-                                    </div> \
-                                </div> \
-                            </li>'
-                $('#mensagem').append(txt);
-                $("#chatmsg").scrollTop(($("#chatmsg")[0].scrollHeight)+100);
-            });
-
-            /*socket.on('disconnect', function(){
-                alert('Pedimos desculpa, o servidor desconectou-se');
-            });*/
-        })
-        
-    </script>
+    <script src="js/template.js"></script>
+    <script src="js/sockets.js"></script>
 </html>
