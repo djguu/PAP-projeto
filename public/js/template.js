@@ -5,32 +5,37 @@ $('#open').click(function(){
     sidenavToggle();
 })
 
+function sidenavClose(){
+    document.getElementById("tt").style.width = "0";
+    document.getElementById("open").style.marginLeft = "0";
+}
+
+function sidenavOpen(){
+    document.getElementById("tt").style.width = "250px";
+    document.getElementById("open").style.marginLeft = "250px";
+}
+
 function sidenavToggle(){
     if ($(window).width() <= 768) {
         if(document.getElementById("tt").style.width == "250px"){
-            document.getElementById("tt").style.width = "0";
-            document.getElementById("open").style.marginLeft = "0";
+            sidenavClose();
         }
         else{
-            document.getElementById("tt").style.width = "250px";
-            document.getElementById("open").style.marginLeft = "250px";
+            sidenavOpen();
         }
     }
     else{
-        document.getElementById("tt").style.width = "250px";
-        document.getElementById("open").style.marginLeft = "250px";
+        sidenavOpen();
     }
 }
 
 $( window ).resize(function() {
     if ($(window).width() > 768) {
-        document.getElementById("tt").style.width = "250px";
-        document.getElementById("open").style.marginLeft = "250px";
+        sidenavOpen();
         $('#open').css('display','none');
     }
     else{
-        document.getElementById("tt").style.width = "0px";
-        document.getElementById("open").style.marginLeft = "0px";
+        sidenavClose();
         $('#open').css('display','block');
     }
 });

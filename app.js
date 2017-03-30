@@ -19,15 +19,19 @@ io.on('connection', function(socket){
 	};
 
 	socket.on('novo user', function(data, callback){
-		if(nicknames.indexOf(data) != -1){
+		var tmp = nicknames.join('~').toLowerCase();
+		var array = tmp.split('~');
+
+		if(array.indexOf(data.toLowerCase()) != -1){
 			callback(false);
 		}
 		else if(nicknames.length < 5){
+			console.log(data);
 			callback(true);
 			socket.nickname = data;
 			nicknames.push(socket.nickname);
 			updateNicknames();
-			console.log('Utilizador ', socket.nickname, ' juntou-se ao chat')
+			//console.log('Utilizador ', socket.nickname, ' juntou-se ao chat')
 		}
 		else{
 			callback
@@ -42,7 +46,7 @@ io.on('connection', function(socket){
 
     var clientIp = socket.request.connection.remoteAddress;
         clientIp = clientIp.replace(/^.*:/, '');
-    console.log('Utilizador ', clientIp, 'ligou-se');
+   // console.log('Utilizador ', clientIp, 'ligou-se');
 
     socket.on('chat message', function(msg){
     	io.emit('chat message',{msn : msg, nick: socket.nickname});
