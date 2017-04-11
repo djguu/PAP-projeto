@@ -25,16 +25,16 @@ io.on('connection', function(socket){
 		if(array.indexOf(data.toLowerCase()) != -1){
 			callback(false);
 		}
-		else if(nicknames.length < 5){
+		else if(nicknames.length < 4){
 			console.log(data);
 			callback(true);
 			socket.nickname = data;
 			nicknames.push(socket.nickname);
 			updateNicknames();
-			//console.log('Utilizador ', socket.nickname, ' juntou-se ao chat')
+			console.log('Utilizador ', socket.nickname, ' juntou-se ao chat')
 		}
 		else{
-			callback
+			//emitir uma mensagem a dizer que a sala esta cheia
 		}
 	});
 
@@ -44,17 +44,22 @@ io.on('connection', function(socket){
 		updateNicknames();
 	});
 
-    var clientIp = socket.request.connection.remoteAddress;
-        clientIp = clientIp.replace(/^.*:/, '');
-   // console.log('Utilizador ', clientIp, 'ligou-se');
 
-    socket.on('chat message', function(msg){
+	 socket.on('chat message', function(msg){
     	io.emit('chat message',{msn : msg, nick: socket.nickname});
   	});
+
+
+	// emite o ip do cliente que se esta a ligar
+
+	/*
+    var clientIp = socket.request.connection.remoteAddress;
+        clientIp = clientIp.replace(/^.*:/, '');
+    console.log('Utilizador ', clientIp, 'ligou-se');*/
+   
 });
 
-//http.listen(80);
 
 http.listen(666, function(){
-    console.log('listening on <ip>:666');
+    console.log('A escutar em <ip>:666');
 });
