@@ -13,7 +13,7 @@ app.use(express.static(__dirname + "/public" ))
 
 
 io.on('connection', function(socket){
-	
+
 	function updateNicknames(){
 		io.emit('usernames', nicknames);
 	};
@@ -26,7 +26,6 @@ io.on('connection', function(socket){
 			callback(false);
 		}
 		else if(nicknames.length < 4){
-			console.log(data);
 			callback(true);
 			socket.nickname = data;
 			nicknames.push(socket.nickname);
@@ -40,6 +39,7 @@ io.on('connection', function(socket){
 
 	socket.on('disconnect', function(data){
 		if(!socket.nickname) return;
+        console.log('Utilizador ',socket.nickname, ' saiu do chat');
 		nicknames.splice(nicknames.indexOf(socket.nickname), 1);
 		updateNicknames();
 	});
@@ -56,7 +56,7 @@ io.on('connection', function(socket){
     var clientIp = socket.request.connection.remoteAddress;
         clientIp = clientIp.replace(/^.*:/, '');
     console.log('Utilizador ', clientIp, 'ligou-se');*/
-   
+
 });
 
 
