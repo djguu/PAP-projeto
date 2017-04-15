@@ -3,6 +3,8 @@ var app = new express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var nicknames = [];
+var Log = require('log'),
+    log = new Log('debug');
 
 
 app.get('/', function(req, res){
@@ -30,7 +32,7 @@ io.on('connection', function(socket){
 			socket.nickname = data;
 			nicknames.push(socket.nickname);
 			updateNicknames();
-			console.log('Utilizador ', socket.nickname, ' juntou-se ao chat')
+			log.info('Utilizador ', socket.nickname, ' [',clientIp,'] juntou-se ao chat');
 		}
 		else{
 			//emitir uma mensagem a dizer que a sala esta cheia
@@ -39,7 +41,7 @@ io.on('connection', function(socket){
 
 	socket.on('disconnect', function(data){
 		if(!socket.nickname) return;
-        console.log('Utilizador ',socket.nickname, ' saiu do chat');
+        log.info('Utilizador ',socket.nickname, ' saiu do chat');
 		nicknames.splice(nicknames.indexOf(socket.nickname), 1);
 		updateNicknames();
 	});
@@ -52,14 +54,14 @@ io.on('connection', function(socket){
 
 	// emite o ip do cliente que se esta a ligar
 
-	/*
+
     var clientIp = socket.request.connection.remoteAddress;
         clientIp = clientIp.replace(/^.*:/, '');
-    console.log('Utilizador ', clientIp, 'ligou-se');*/
+    //console.log('Utilizador ', clientIp, 'ligou-se');
 
 });
 
 
 http.listen(666, function(){
-    console.log('A escutar em <ip>:666');
+    log.info('A escutar em <ip>:666');
 });

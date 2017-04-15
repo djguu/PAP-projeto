@@ -38,7 +38,7 @@ socket.on('usernames', function(data){
 })
 
 $('#bt').click(function(){
-    $('#chatform').submit(); 
+    $('#chatform').submit();
 });
 
 $('#chatform').submit(function(){
@@ -50,7 +50,6 @@ $('#chatform').submit(function(){
 });
 
 socket.on('chat message', function(msg){
-    console.log(msg.msn);
     var txt = '<li class="media"> \
                     <div class="media-body"> \
                         <div class="media"> \

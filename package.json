@@ -2,12 +2,15 @@
   "name": "Projeto-PAP-Goncalo-Correia",
   "version": "0.0.1",
   "description": "Meu projeto final de ano",
+  "main":"app.js",
   "scripts":{
     "start":"node app.js"
   },
   "dependencies": {
     "express": "latest",
     "socket.io": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "log" : "*",
+    "fs" : "*"
   }
 }
