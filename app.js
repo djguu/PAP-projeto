@@ -7,6 +7,10 @@ var Log = require('log'),
     log = new Log('debug');
 
 
+    var port = process.env.PORT || 666;
+
+
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
 });
@@ -62,6 +66,6 @@ io.on('connection', function(socket){
 });
 
 
-http.listen(666, function(){
+http.listen(port, function(){
     log.info('A escutar em <ip>:666');
 });
