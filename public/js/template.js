@@ -33,10 +33,12 @@ $( window ).resize(function() {
     if ($(window).width() > 768) {
         sidenavOpen();
         $('#open').css('display','none');
+        //$('#minimize').remove();
     }
     else{
         sidenavClose();
         $('#open').css('display','block');
+        //$('#top-chat').append('<span id="minimize" class="glyphicon glyphicon-minus minimize"></span>');
     }
 });
 
@@ -44,7 +46,7 @@ function Logout(){
     window.location.reload();
 };
 
-//$('#contentWrap').show(); 
+//$('#contentWrap').show();
 
 $(".minimize").click(function(){
     $("#chatWrap").slideToggle(350);
@@ -53,3 +55,7 @@ $(".minimize").click(function(){
         sidenavToggle();
     }
 });
+
+/*if($(window).width() <= 768){
+    $('#top-chat').append('<span id="minimize" class="glyphicon glyphicon-minus minimize"></span>');
+}*/

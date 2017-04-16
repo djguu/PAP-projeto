@@ -2,13 +2,19 @@ var express = require('express');
 var app = new express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var nicknames = [];
 var Log = require('log'),
     log = new Log('debug');
 
+var nicknames = [];
+var colors = ['#99ccff','#66d9ff','#ccffcc','#ffff66'];
+var usedColors = [];
 
-    var port = process.env.PORT || 666;
 
+var port = process.env.PORT || 666;
+
+http.listen(port, function(){
+    log.info('A escutar em <ip>:666');
+});
 
 
 app.get('/', function(req, res){
@@ -34,6 +40,21 @@ io.on('connection', function(socket){
 		else if(nicknames.length < 4){
 			callback(true);
 			socket.nickname = data;
+            var color = colors[Math.floor(Math.random() * colors.length)];
+
+            if(usedColors.length != 0){
+                for(c in usedColors){
+                    if(usedColors[c] != color){
+                        socket.color = color;
+                        usedColors.push(socket.color);
+                    }
+                }
+            }
+            else{
+                socket.color = color;
+                usedColors.push(socket.color);
+            }
+
 			nicknames.push(socket.nickname);
 			updateNicknames();
 			log.info('Utilizador ', socket.nickname, ' [',clientIp,'] juntou-se ao chat');
@@ -47,12 +68,13 @@ io.on('connection', function(socket){
 		if(!socket.nickname) return;
         log.info('Utilizador ',socket.nickname, ' saiu do chat');
 		nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+        usedColors.splice(usedColors.indexOf(socket.color), 1);
 		updateNicknames();
 	});
 
 
 	 socket.on('chat message', function(msg){
-    	io.emit('chat message',{msn : msg, nick: socket.nickname});
+    	io.emit('chat message',{msn : msg, nick: socket.nickname, color: socket.color});
   	});
 
 
@@ -63,9 +85,4 @@ io.on('connection', function(socket){
         clientIp = clientIp.replace(/^.*:/, '');
     //console.log('Utilizador ', clientIp, 'ligou-se');
 
-});
-
-
-http.listen(port, function(){
-    log.info('A escutar em <ip>:666');
 });

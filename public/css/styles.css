@@ -1,6 +1,7 @@
 
 body{
     font: 13px Helvetica, Arial;
+    overflow: hidden;
 }
 
 #minimize{
@@ -9,6 +10,7 @@ body{
     right: 10px;
     top: 13px;
 }
+
 
 #open{
     color: rgb(70, 184, 218);
@@ -21,10 +23,11 @@ body{
     bottom: 0;
     right: 0;
     position: fixed;
+    display: none;
 }
 
 #chatmsg {
-    height: 360px;
+    height: 570px;
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
@@ -38,12 +41,11 @@ body{
 #chatWrap{
     /*height: 150px;*/
     position:absolute;
-    bottom: 30px;
     right: 0;
     padding:0;
     margin:0;
-    
-    display: none;
+
+    play: none;
 }
 #nickWrap{
     width: 300px;
@@ -84,4 +86,22 @@ body{
 @media screen and (max-width: 768px) {
     .sidenav {width: 0}
     #open{display: block}
+    #chatWrap{
+        bottom: 30px;
+        display: none;
+    }
+    #chatmsg {
+        height: 360px;
+        width: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    #chat{display: block;}
+}
+
+@media screen and (min-width: 768px){
+    #chatWrap{
+        height: 100%;
+        display: block;
+    }
 }

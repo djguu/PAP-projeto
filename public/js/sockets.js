@@ -50,7 +50,7 @@ $('#chatform').submit(function(){
 });
 
 socket.on('chat message', function(msg){
-    var txt = '<li class="media"> \
+    var txt = '<li class="media" style="background: ' + msg.color + '"> \
                     <div class="media-body"> \
                         <div class="media"> \
                             <b>' + msg.nick + ':</b> \
