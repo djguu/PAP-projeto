@@ -41,18 +41,29 @@ io.on('connection', function(socket){
 			callback(true);
 			socket.nickname = data;
             var color = colors[Math.floor(Math.random() * colors.length)];
-
-            if(usedColors.length != 0){
-                for(c in usedColors){
-                    if(usedColors[c] != color){
-                        socket.color = color;
-                        usedColors.push(socket.color);
-                    }
-                }
-            }
-            else{
+            if(usedColors.length == 0){
                 socket.color = color;
                 usedColors.push(socket.color);
+            }
+            else
+            if(usedColors.length <= 4){
+                var c = 0;
+                while(c < usedColors.length && usedColors.length <= 4){
+                    if(usedColors[c] != color){
+                        if(c+1 == usedColors.length){
+                            socket.color = color;
+                            usedColors.push(socket.color);
+                            break;
+                        }
+                        c++;
+                    }
+                    else
+                    if(usedColors[c] == color){
+                        color = colors[Math.floor(Math.random() * colors.length)];
+                        c = 0;
+                    }
+
+                }
             }
 
 			nicknames.push(socket.nickname);
