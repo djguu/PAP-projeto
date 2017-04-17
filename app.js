@@ -87,7 +87,10 @@ io.on('connection', function(socket){
 
 
 	 socket.on('chat message', function(msg){
-         io.emit('chat message',{msn : msg, nick: socket.nickname, color: socket.color});
+        msg = msg.replace(/(www\..+?)(\s|$)/g, function(text, link) {
+           return '<a href="http://'+ link +'" target="_blank">'+ link +'</a>';
+        })
+        io.emit('chat message',{msn : msg, nick: socket.nickname, color: socket.color});
     	socket.broadcast.emit('sound', '/sounds/msg.mp3');
   	});
 

@@ -1,6 +1,6 @@
 
 body{
-    font: 13px Helvetica, Arial;
+    font-family: "Open Sans"
     overflow: hidden;
     background-size: 100% 1000px;
 }
@@ -16,6 +16,10 @@ body{
 #open{
     color: rgb(70, 184, 218);
     display: none;
+}
+
+#user{
+    text-transform: capitalize;
 }
 
 #chat{
