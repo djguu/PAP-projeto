@@ -69,6 +69,7 @@ io.on('connection', function(socket){
 			nicknames.push(socket.nickname);
 			updateNicknames();
 			log.info('Utilizador ', socket.nickname, ' [',clientIp,'] juntou-se ao chat');
+            socket.broadcast.emit('sound', '/sounds/user.mp3');
 		}
 		else{
 			//emitir uma mensagem a dizer que a sala esta cheia
@@ -85,7 +86,8 @@ io.on('connection', function(socket){
 
 
 	 socket.on('chat message', function(msg){
-    	io.emit('chat message',{msn : msg, nick: socket.nickname, color: socket.color});
+         io.emit('chat message',{msn : msg, nick: socket.nickname, color: socket.color});
+    	socket.broadcast.emit('sound', '/sounds/msg.mp3');
   	});
 
 
