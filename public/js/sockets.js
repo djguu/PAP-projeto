@@ -8,17 +8,16 @@ $('#setNick').submit(function(e){
                 $('#nickWrap').hide();
                 $('#contentWrap').show();
             }
-            else if (data =='full'){
-                alert('asdasd');
-            }
-            else{
-                $('#nickError').html('Esse utilizador ja foi usado, tente novamente');
-            }
         });
     }
 
     $('#nickname').val('');
 });
+
+
+socket.on('erro user', function(data){
+    $('#nickError').html(data);
+})
 
 socket.on('usernames', function(data){
     var html = '';
