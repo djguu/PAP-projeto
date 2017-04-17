@@ -22,13 +22,13 @@ $('#setNick').submit(function(e){
 
 socket.on('usernames', function(data){
     var html = '';
-    for(i=0; i < data.length; i++){
+    for(i=0; i < data.nicknames.length; i++){
         html += '<li class="media">\
                     <div class="media-body">\
                         <div class="media">\
                             <img class="pull-left" class="media-object img-circle" style="max-height:15px;" src="images/on.png" />\
                             <div class="media-body" >\
-                                <h5>' + data[i] + '</h5>\
+                                <h5 style="background-color: '+data.usedColors[i]+'">' + data.nicknames[i] + '</h5>\
                             </div>\
                         </div>\
                     </div>\

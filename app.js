@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public" ))
 io.on('connection', function(socket){
 
 	function updateNicknames(){
-		io.emit('usernames', nicknames);
+		io.emit('usernames', {nicknames : nicknames, usedColors: usedColors});
 	};
 
 	socket.on('novo user', function(data, callback){
@@ -90,10 +90,7 @@ io.on('connection', function(socket){
 
 
 	// emite o ip do cliente que se esta a ligar
-
-
     var clientIp = socket.request.connection.remoteAddress;
         clientIp = clientIp.replace(/^.*:/, '');
-    //console.log('Utilizador ', clientIp, 'ligou-se');
 
 });
