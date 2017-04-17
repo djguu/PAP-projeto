@@ -27,7 +27,7 @@ body{
 }
 
 #chatmsg {
-    height: 570px;
+    height: 565px;
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
