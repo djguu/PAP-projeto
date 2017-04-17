@@ -35,6 +35,7 @@ io.on('connection', function(socket){
 		var array = tmp.split('~');
 
 		if(array.indexOf(data.toLowerCase()) != -1){
+            io.emit('erro user', 'Esse utilizador ja foi usado, tente novamente');
 			callback(false);
 		}
 		else if(nicknames.length < 4){
@@ -72,7 +73,7 @@ io.on('connection', function(socket){
             socket.broadcast.emit('sound', '/sounds/user.mp3');
 		}
 		else{
-			//emitir uma mensagem a dizer que a sala esta cheia
+			io.emit('erro user', 'A sala está cheia, tente mais tarde');
 		}
 	});
 
