@@ -36,6 +36,7 @@ socket.on('usernames', function(data){
     $('#user').html(html);
 })
 
+
 $('#bt').click(function(){
     $('#chatform').submit();
 });
@@ -63,6 +64,11 @@ socket.on('chat message', function(msg){
     $('#mensagem').append(txt);
     $("#chatmsg").scrollTop(($("#chatmsg")[0].scrollHeight)+100);
 });
+
+socket.on('sound',function(data){
+    var audio = new Audio(data);
+    audio.play();
+})
 
 /*socket.on('disconnect', function(){
     alert('Pedimos desculpa, o servidor desconectou-se');
