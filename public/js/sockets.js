@@ -57,7 +57,6 @@ socket.on('chat message', function(msg){
                             <b>' + msg.nick + ':</b> \
                             <div class="media-body" > \
                                 ' + msg.msn + ' \
-                                <hr /> \
                             </div> \
                         </div> \
                     </div> \
