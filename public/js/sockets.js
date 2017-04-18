@@ -50,6 +50,20 @@ $('#chatform').submit(function(){
     return false;
 });
 
+socket.on('status user', function(data){
+    var txt = '<li class="media"> \
+                    <div class="media-body"> \
+                        <div class="media"> \
+                            <div class="media-body" > \
+                                ' + data + ' \
+                            </div> \
+                        </div> \
+                    </div> \
+                </li>';
+    $('#mensagem').append(txt);
+    $("#chatmsg").scrollTop(($("#chatmsg")[0].scrollHeight)+100);
+})
+
 socket.on('chat message', function(msg){
     var txt = '<li class="media" style="background: ' + msg.color + '"> \
                     <div class="media-body"> \

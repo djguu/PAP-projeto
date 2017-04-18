@@ -54,6 +54,7 @@ io.on('connection', function(socket){
                         if(c+1 == usedColors.length){
                             socket.color = color;
                             usedColors.push(socket.color);
+                            io.emit('status user', 'O utilizador '+socket.nickname+' juntou-se ao chat');
                             break;
                         }
                         c++;
@@ -80,6 +81,7 @@ io.on('connection', function(socket){
 	socket.on('disconnect', function(data){
 		if(!socket.nickname) return;
         log.info('Utilizador ',socket.nickname, ' saiu do chat');
+        io.emit('status user', 'O utilizador '+socket.nickname+' saiu do chat');
 		nicknames.splice(nicknames.indexOf(socket.nickname), 1);
         usedColors.splice(usedColors.indexOf(socket.color), 1);
 		updateNicknames();
