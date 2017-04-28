@@ -33,11 +33,13 @@ $( window ).resize(function() {
     if ($(window).width() > 768) {
         sidenavOpen();
         $('#open').css('display','none');
+        $('#chatWrap').css('display','block');
         //$('#minimize').remove();
     }
     else{
         sidenavClose();
         $('#open').css('display','block');
+        $('#chatWrap').css('display','none');
         //$('#top-chat').append('<span id="minimize" class="glyphicon glyphicon-minus minimize"></span>');
     }
 });
