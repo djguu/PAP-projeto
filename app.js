@@ -54,7 +54,7 @@ io.on('connection', function(socket){
                 usedColors.push(socket.color);
             }
             else
-            if(usedColor.length <= 4){ //define o limite de cores no site
+            if(usedColors.length <= 4){ //define o limite de cores no site
                 var c = 0;
                 while(c < usedColors.length && usedColors.length <= 4){
                     if(usedColors[c] != color){

@@ -83,7 +83,3 @@ socket.on('sound',function(data){
     var audio = new Audio(data);
     audio.play();
 })
-
-/*socket.on('disconnect', function(){
-    alert('Pedimos desculpa, o servidor desconectou-se');
-});*/
