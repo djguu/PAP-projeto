@@ -10,8 +10,7 @@
     "express": "latest",
     "socket.io": "latest",
     "bootstrap": "latest",
-    "log" : "*",
-    "fs" : "*"
+    "log" : "*"
   },
   "engines": {
     "node": "*"
