@@ -10,16 +10,16 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     </head>
     <body background = "images/bg.jpg">
         <div id="nickWrap">
-                <form id="setNick" class="form-signin">
-                    <h3 class="form-signin-heading">Insira um Username</h3>
-                    <input size=35 id="nickname" autocomplete="off" class="form-control"></input><br>
-                    <input type="submit" class="btn btn-lg btn-info btn-block"></input>
-                    <h5 id="nickError"></h5>
-                </form>
+            <form id="setNick" class="form-signin">
+                <h3 class="form-signin-heading">Insira um Username</h3>
+                <input size=35 id="nickname" autocomplete="off" class="form-control"></input><br>
+                <input id="btn-open-room" type="submit" class="btn btn-lg btn-info btn-block"></input>
+                <h5 id="nickError"></h5>
+            </form>
         </div>
         <div id="contentWrap">
             <span style="font-size:30px;cursor:pointer" id="open">&#9776;</span>
@@ -61,11 +61,12 @@
             </div>
             <img src="images/msg.png" id="chat" class="minimize">
         </div>
-
     </body>
-
-    <script src="/socket.io/socket.io.js"></script>
     <script src="js/jquery-1.11.1.js"></script>
     <script src="js/template.js"></script>
+    <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+    <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src="js/video.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/sockets.js"></script>
 </html>
