@@ -14,7 +14,6 @@ else{
 var io = require('socket.io')(http);
 var Log = require('log');
 var log = new Log('debug');
-log.info(!fs.existsSync('localhost.txt'));
 var nicknames = [];
 var colors = ['#99ccff','#66d9ff','#ccffcc','#ffff66'];
 var usedColors = [];
