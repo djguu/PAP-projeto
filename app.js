@@ -5,8 +5,12 @@ var options = {
 };
 var express = require('express');
 var app = new express();
-//var http = require('https').Server(options, app);
-var http = require('http').Server(app);
+if (!fs.existsSync('localhost.txt')) {
+    var http = require('https').Server(options, app);
+}
+else{
+    var http = require('http').Server(app);
+};
 var io = require('socket.io')(http);
 var Log = require('log');
 var log = new Log('debug');
