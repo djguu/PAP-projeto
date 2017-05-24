@@ -39,6 +39,15 @@ body{
     overflow-y: auto;
 }
 
+#Local{
+    bottom:0;
+    position:fixed;
+}
+
+video{
+    height: 375px;
+}
+
 .media-body{
     word-wrap: break-word;
     max-width: 400px;
