@@ -40,7 +40,6 @@ $( window ).resize(function() {
         sidenavClose();
         $('#open').css('display','block');
         $('#chatWrap').css('display','none');
-        //$('#top-chat').append('<span id="minimize" class="glyphicon glyphicon-minus minimize"></span>');
     }
 });
 
@@ -48,7 +47,6 @@ function Logout(){
     window.location.reload();
 };
 
-//$('#contentWrap').show();
 
 $(".minimize").click(function(){
     $("#chatWrap").slideToggle(350);
@@ -56,7 +54,3 @@ $(".minimize").click(function(){
         sidenavToggle();
     }
 });
-
-/*if($(window).width() <= 768){
-    $('#top-chat').append('<span id="minimize" class="glyphicon glyphicon-minus minimize"></span>');
-}*/

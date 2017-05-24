@@ -50,7 +50,7 @@ io.on('connection', function(socket){
             io.emit('erro user', 'Esse utilizador ja foi usado, tente novamente');
             callback(false);
         }
-        else if(nicknames.length < 4){ //define o limite de utilizadores no site
+        else if(nicknames.length < 2){ //define o limite de utilizadores no site
             callback(true);
             socket.nickname = data;
             var color = colors[Math.floor(Math.random() * colors.length)];
