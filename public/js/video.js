@@ -5,13 +5,13 @@ var connection = new RTCMultiConnection();
 connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
 
 connection.session = {
-audio: true,
-video: true
+    audio: true,
+    video: true
 };
 
 connection.sdpConstraints.mandatory = {
-OfferToReceiveAudio: true,
-OfferToReceiveVideo: true
+    OfferToReceiveAudio: true,
+    OfferToReceiveVideo: true
 };
 
 connection.onstream = function(event) {
@@ -22,9 +22,9 @@ connection.onstream = function(event) {
     $(video).attr('data-userid', event.userid);
 
     if (event.userid === connection.userid) {
-        Local.appendChild( video);
+        Local.appendChild(video);
     } else {
-        Remote.appendChild( video);
+        Remote.appendChild(video);
     }
 
 
@@ -33,10 +33,8 @@ connection.onstream = function(event) {
 var predefinedRoomId = 'Pap-Room';
 
 document.getElementById('VideoChatEnter').onclick = function() {
-    connection.open( predefinedRoomId );
+    connection.open(predefinedRoomId);
     $('#VideoChatEnter').hide();
-    /*$('#VideoChatLeave').show();
-    $('#VideoChatEnter').hide();*/
 };
 /*
 document.getElementById('VideoChatLeave').onclick = function() {

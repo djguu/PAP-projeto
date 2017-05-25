@@ -4,6 +4,8 @@
 
 Install packages with `npm install`
 
-Start by typing `sudo npm start`
+Create a `localhost.txt` empty file in the root directory
 
-Go to your browser and type `localhost:666`
+Start by typing `npm start`
+
+Go to your browser and type `https://localhost:8000`

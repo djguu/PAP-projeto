@@ -1,19 +1,19 @@
 {
-  "name": "Projeto-PAP-Goncalo-Correia",
-  "version": "0.0.1",
-  "description": "Meu projeto final de ano",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "bootstrap": "latest",
-    "express": "latest",
-    "fs": "0.0.1-security",
-    "log": "*",
-    "socket.io": "latest"
-  },
-  "engines": {
-    "node": "*"
-  }
+    "name": "Projeto-PAP-Goncalo-Correia",
+    "version": "0.0.1",
+    "description": "Meu projeto final de ano",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "bootstrap": "latest",
+        "express": "latest",
+        "fs": "0.0.1-security",
+        "log": "*",
+        "socket.io": "latest"
+    },
+    "engines": {
+        "node": "*"
+    }
 }

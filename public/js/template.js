@@ -1,56 +1,52 @@
-
 $('#nickname').focus();
 
-$('#open').click(function(){
+$('#open').click(function() {
     sidenavToggle();
-})
+});
 
-function sidenavClose(){
+function sidenavClose() {
     document.getElementById("tt").style.width = "0";
     document.getElementById("open").style.marginLeft = "0";
 }
 
-function sidenavOpen(){
+function sidenavOpen() {
     document.getElementById("tt").style.width = "250px";
     document.getElementById("open").style.marginLeft = "250px";
 }
 
-function sidenavToggle(){
+function sidenavToggle() {
     if ($(window).width() <= 768) {
-        if(document.getElementById("tt").style.width == "250px"){
+        if (document.getElementById("tt").style.width == "250px") {
             sidenavClose();
-        }
-        else{
+        } else {
             sidenavOpen();
         }
-    }
-    else{
+    } else {
         sidenavOpen();
     }
 }
 
-$( window ).resize(function() {
+$(window).resize(function() {
     if ($(window).width() > 768) {
         sidenavOpen();
-        $('#open').css('display','none');
-        $('#chatWrap').css('display','block');
+        $('#open').css('display', 'none');
+        $('#chatWrap').css('display', 'block');
         //$('#minimize').remove();
-    }
-    else{
+    } else {
         sidenavClose();
-        $('#open').css('display','block');
-        $('#chatWrap').css('display','none');
+        $('#open').css('display', 'block');
+        $('#chatWrap').css('display', 'none');
     }
 });
 
-function Logout(){
+function Logout() {
     window.location.reload();
-};
+}
 
 
-$(".minimize").click(function(){
+$(".minimize").click(function() {
     $("#chatWrap").slideToggle(350);
-    if(document.getElementById("tt").style.width == "250px"){
+    if (document.getElementById("tt").style.width == "250px") {
         sidenavToggle();
     }
 });
