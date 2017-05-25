@@ -17,23 +17,15 @@ connection.sdpConstraints.mandatory = {
 connection.onstream = function(event) {
     var video = event.mediaElement;
 
-    // now you can search all <video>
-    // whose "data-userid" matches current userid
-    $(video).attr('data-userid', event.userid);
-
     if (event.userid === connection.userid) {
         Local.appendChild(video);
     } else {
         Remote.appendChild(video);
     }
-
-
 };
 
-var predefinedRoomId = 'Pap-Room';
-
 document.getElementById('VideoChatEnter').onclick = function() {
-    connection.open(predefinedRoomId);
+    connection.open('Pap-Room');
     $('#VideoChatEnter').hide();
 };
 /*
