@@ -5,7 +5,7 @@ $('#setNick').submit(function(e) {
     if ($('#nickname').val() !== "") {
         socket.emit('new user', $('#nickname').val(), function(data) {
             if (data) {
-                $('#nickWrap').hide();
+                $('#formWrapperFlex').hide();
                 $('#contentWrap').show();
             }
         });

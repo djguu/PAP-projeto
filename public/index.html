@@ -14,72 +14,81 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 
-<body background="images/bg.jpg">
-    <div id="nickWrap">
-        <form id="setNick" class="form-signin">
-            <h3 class="form-signin-heading">Insira um Username</h3>
-            <input size="35" id="nickname" autocomplete="off" class="form-control"><br>
-            <input type="submit" class="btn btn-lg btn-info btn-block">
-            <h5 id="nickError"></h5>
-        </form>
+<body>
+    <div id="formWrapperFlex">
+        <div id="nickWrap" class="col-lg-6 col-md-4 col-xs-8">
+            <form id="setNick">
+                <div class="form-group">
+                    <h3 class="form-signin-heading">Insira um Username</h3>
+                    <input type="text" class="form-control" id="nickname" autocomplete="off">
+                    <span id="nickError"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+            </form>
+        </div>
     </div>
+
     <div id="contentWrap">
-        <span style="font-size:30px;cursor:pointer" id="open">&#9776;</span>
+        <div class="row">
+            <span id="open" style="display:none">&#9776;</span>
+            <div class="sidenav col-md-4 col-xs-12" id="tt" style="cursor: default">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        ONLINE USERS
+                    </div>
+                    <div class="panel-body">
+                        <ul class="media-list" id="user">
+                            <!-- Users -->
+                        </ul>
 
-        <div class="sidenav" id="tt" style="cursor: default">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    ONLINE USERS
-                </div>
-                <div class="panel-body">
-                    <ul class="media-list" id="user">
-                        <!-- Users -->
-                    </ul>
-
-                </div>
-            </div>
-            <button class="btn btn-md btn-primary" id="VideoChatEnter">Entrar video chamada</button>
-        </div>
-
-        <div class="col-md-4 col-md-offset-3" id="#videoWrap">
-            <div id="Local"></div>
-            <div id="Remote"></div>
-        </div>
-
-        <div class="col-md-4 col-sm-4" id="chatWrap">
-            <div class="panel panel-primary">
-                <div class="panel-heading" id="top-chat" style="cursor: default">
-                    CHAT
-                </div>
-                <div class="panel-body" id="chatmsg">
-                    <ul class="media-list" id="mensagem">
-                        <!-- Mensagem -->
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <form action="" id="chatform">
-                            <input id="mm" type="text" autocomplete="off" class="form-control" placeholder="Enter Message" />
-                        </form>
-                        <span class="input-group-btn">
-                                <button id="bt" class="btn btn-primary" type="submit">SEND</button>
-                        </span>
                     </div>
                 </div>
+                <button class="btn btn-md btn-primary" id="VideoChatEnter">Entrar video chamada</button>
+            </div>
+            <div class="col-md-8 col-xs-12">
+                <div class="row">
+                    <div class="col-md-6 col-xs-12" id="#videoWrap">
+                        <div id="Local"></div>
+                        <div id="Remote"></div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" id="chatWrap">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" id="top-chat" style="cursor: default">
+                                CHAT
+                            </div>
+                            <div class="panel-body" id="chatmsg">
+                                <ul class="media-list" id="mensagem">
+                                    <!-- Mensagem -->
+                                </ul>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="input-group">
+                                    <form action="" id="chatform">
+                                        <input id="mm" type="text" autocomplete="off" class="form-control" placeholder="Enter Message" />
+                                    </form>
+                                    <span class="input-group-btn">
+                                    <input type="submit" id="bt" class="btn btn-primary" />
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="images/msg.png" id="chat" class="minimize" style="display:none">
+                </div>
+
             </div>
         </div>
-        <img src="images/msg.png" id="chat" class="minimize">
     </div>
 </body>
-<script src="js/jquery-1.11.1.js"></script>
-<script src="js/template.js"></script>
+<script src="js/jquery-1.11.1.js "></script>
+<script src="js/template.js "></script>
 <script>
     window.getExternalIceServers = true;
 </script>
-<script src="js/RTCMultiConnection.min.js"></script>
-<script src="js/socket.io.js"></script>
-<script src="js/video.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/sockets.js"></script>
+<script src="js/RTCMultiConnection.min.js "></script>
+<script src="js/socket.io.js "></script>
+<script src="js/video.js "></script>
+<script src="/socket.io/socket.io.js "></script>
+<script src="js/sockets.js "></script>
 
 </html>
