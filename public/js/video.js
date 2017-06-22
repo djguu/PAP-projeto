@@ -16,7 +16,9 @@ connection.sdpConstraints.mandatory = {
 
 connection.onstream = function(event) {
     var video = event.mediaElement;
-
+    console.log(video);
+    console.log(JSON.stringify(event));
+    console.log(event.stream.streamid);
     if (event.userid === connection.userid) {
         Local.appendChild(video);
     } else {
@@ -25,7 +27,7 @@ connection.onstream = function(event) {
 };
 
 document.getElementById('VideoChatEnter').onclick = function() {
-    connection.open('Pap-Room');
+    connection.openOrJoin('Pap-Room');
     $('#VideoChatEnter').hide();
 };
 /*
