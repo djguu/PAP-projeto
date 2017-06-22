@@ -25,7 +25,7 @@ connection.onstream = function(event) {
 };
 
 document.getElementById('VideoChatEnter').onclick = function() {
-    connection.open('Pap-Room');
+    connection.openOrJoin('Pap-Room');
     $('#VideoChatEnter').hide();
 };
 /*
