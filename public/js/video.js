@@ -21,8 +21,13 @@ connection.onstream = function(event) {
     console.log(event.stream.streamid);
     if (event.userid === connection.userid) {
         Local.appendChild(video);
+        var local = document.getElementById(event.streamid);
+        // local.height = (window.outerHeight - 50)/2;
+        local.height = 200;
     } else {
         Remote.appendChild(video);
+        var remote = document.getElementById(event.streamid);
+        remote.height = (window.outerHeight - 50)/2;
     }
 };
 

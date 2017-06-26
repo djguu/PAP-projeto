@@ -16,7 +16,7 @@
 
 <body>
     <div id="formWrapperFlex">
-        <div id="nickWrap" class="col-lg-6 col-md-4 col-xs-8">
+        <div id="nickWrap" class="col-lg-4 col-md-4 col-xs-6">
             <form id="setNick">
                 <div class="form-group">
                     <h3 class="form-signin-heading">Insira um Username</h3>
@@ -31,7 +31,7 @@
     <div id="contentWrap">
         <div class="row">
             <span id="open" style="display:none">&#9776;</span>
-            <div class="sidenav col-md-4 col-xs-12" id="tt" style="cursor: default">
+            <div class="sidenav col-lg-2 col-md-3 col-xs-12" id="tt" style="cursor: default">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         ONLINE USERS
@@ -44,15 +44,16 @@
                     </div>
                 </div>
                 <button class="btn btn-md btn-primary" id="VideoChatEnter">Entrar video chamada</button>
+                <div id="Local"></div>
             </div>
-            <div class="col-md-8 col-xs-12">
+            <div class="col-lg-10 col-md-9 col-xs-12">
                 <div class="row">
-                    <div class="col-md-6 col-xs-12" id="#videoWrap">
-                        <div id="Local"></div>
+                    <div class="col-lg-7 col-md-6 col-xs-12" id="#videoWrap">
+                        <!--<div id="Local"></div>-->
                         <div id="Remote"></div>
                     </div>
-                    <div class="col-md-6 col-xs-12" id="chatWrap">
-                        <div class="panel panel-primary">
+                    <div class="col-lg-5 col-md-6 col-xs-12" id="chatWrap">
+                        <div class="panel panel-primary full">
                             <div class="panel-heading" id="top-chat" style="cursor: default">
                                 CHAT
                             </div>
@@ -61,7 +62,7 @@
                                     <!-- Mensagem -->
                                 </ul>
                             </div>
-                            <div class="panel-footer">
+                            <div class="panel-footer" id="bottom-chat">
                                 <div class="input-group">
                                     <form action="" id="chatform">
                                         <input id="mm" type="text" autocomplete="off" class="form-control" placeholder="Enter Message" />
@@ -73,7 +74,9 @@
                             </div>
                         </div>
                     </div>
-                    <img src="images/msg.png" id="chat" class="minimize" style="display:none">
+                    <!--<div>-->
+                        <img src="images/msg.png" id="chat" class="minimize">
+                    <!--</div>-->
                 </div>
 
             </div>
