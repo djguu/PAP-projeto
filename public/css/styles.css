@@ -11,7 +11,7 @@ body {
     background-size: cover;
 }
 
-#top-chat{
+#top-chat {
     height: 5%;
 }
 
@@ -25,6 +25,7 @@ body {
 #open {
     display: none;
     color: rgb(70, 184, 218);
+    cursor: pointer;
 }
 
 #user {
@@ -46,7 +47,7 @@ body {
     height: 88%;
 }
 
-#bottom-chat{
+#bottom-chat {
     height: 7%;
 }
 
@@ -59,13 +60,11 @@ body {
     bottom: 0;
 }
 
-video {}
-
 .media-body {
     word-wrap: break-word;
 }
 
-#mensagem li{
+#mensagem li {
     padding: 6px;
     border-radius: 3px;
 }
@@ -78,7 +77,7 @@ video {}
     play: none;
 }
 
-#chatInput{
+#chatInput {
     position: fixed;
     bottom: 0;
 }
@@ -110,7 +109,6 @@ video {}
     margin-top: 0;
     margin-bottom: 15px;
 }
-
 
 #nickWrap input,
 #nickWrap button[type=submit] {
@@ -182,6 +180,14 @@ video {}
     #open {
         display: block;
     }
+
+    .row.no-gutter [class*='col-xs']:not(:first-child){
+        padding-left: 0;
+    }
+    .row.no-gutter [class*='col-xs']:not(:last-child) {
+        padding-right: 0;
+    }
+
     #chatWrap {
         bottom: 0;
         display: none;
@@ -199,10 +205,7 @@ video {}
     #chatWrap {
         display: block;
     }
-}
-
-@media screen and (max-width: 768px) {
-    #chatWrap {
+    #open {
         display: none;
     }
 }
