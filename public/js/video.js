@@ -22,18 +22,31 @@ connection.onstream = function(event) {
     if (event.userid === connection.userid) {
         Local.appendChild(video);
         var local = document.getElementById(event.streamid);
-        // local.height = (window.outerHeight - 50)/2;
-        local.height = 200;
+        if ($(window).width() < 768) {
+            local.height = 150;
+        }
+        else{
+            local.height = 200;
+        }
+        local.style.borderRadius = "10px";
+        local.controls = false;
     } else {
         Remote.appendChild(video);
         var remote = document.getElementById(event.streamid);
-        remote.height = (window.outerHeight - 50)/2;
+        // remote.height = (window.outerHeight - 50)/2;
+        if ($(window).width() < 768) {
+            remote.width = window.outerWidth;
+        }
+        else{
+            remote.width = window.outerWidth/2;
+        }
+        remote.style.borderRadius = "10px";
     }
 };
 
-document.getElementById('VideoChatEnter').onclick = function() {
-    connection.openOrJoin('Pap-Room');
-    $('#VideoChatEnter').hide();
+document.getElementById('video').onclick = function() {
+    connection.openOrJoin('Pap-Room4');
+    $('#video').hide();
 };
 /*
 document.getElementById('VideoChatLeave').onclick = function() {

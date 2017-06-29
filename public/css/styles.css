@@ -11,6 +11,14 @@ body {
     background-size: cover;
 }
 
+.row{
+    height: 100%;
+}
+
+#bb{
+    height: 100%;
+}
+
 #top-chat {
     height: 5%;
 }
@@ -40,6 +48,13 @@ body {
     width: 50px;
     cursor: pointer;
 }
+#video {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 75px;
+    cursor: pointer;
+}
 
 #chatmsg {
     overflow: hidden;
@@ -56,6 +71,11 @@ body {
 }
 
 #Local {
+    position: fixed;
+    bottom: 0;
+}
+
+#Remote {
     position: fixed;
     bottom: 0;
 }
@@ -181,11 +201,8 @@ body {
         display: block;
     }
 
-    .row.no-gutter [class*='col-xs']:not(:first-child){
-        padding-left: 0;
-    }
-    .row.no-gutter [class*='col-xs']:not(:last-child) {
-        padding-right: 0;
+    #video {
+        width: 55px;
     }
 
     #chatWrap {
