@@ -35,7 +35,6 @@ $(window).resize(function() {
         if(document.getElementById("Remote").firstElementChild != null){
             document.getElementById("Remote").firstElementChild.width = window.outerWidth;
         }
-        //$('#minimize').remove();
     } else {
         sidenavClose();
         $('#open').css('display', 'block');

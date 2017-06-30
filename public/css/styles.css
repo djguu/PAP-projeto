@@ -1,33 +1,28 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
 html,
 body {
-    font-family: 'Open Sans Condensed', sans-serif;
     overflow: hidden;
     width: 100%;
     height: 100vh;
-    margin: 0;
-    padding: 0;
     background-image: url('../images/bg.jpg');
     background-size: cover;
 }
 
-.row{
-    height: 100%;
-}
-
-#bb{
+.hundred-percent{
     height: 100%;
 }
 
 #top-chat {
-    height: 5%;
+    height: 4%;
 }
 
-#minimize {
-    position: absolute;
-    top: 13px;
-    right: 10px;
-    cursor: pointer;
+#chatmsg {
+    overflow: hidden;
+    overflow-y: auto;
+    height: 90%;
+}
+
+#bottom-chat {
+    height: 6%;
 }
 
 #open {
@@ -48,7 +43,8 @@ body {
     width: 50px;
     cursor: pointer;
 }
-#video {
+
+#video-img {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -56,26 +52,11 @@ body {
     cursor: pointer;
 }
 
-#chatmsg {
-    overflow: hidden;
-    overflow-y: auto;
-    height: 88%;
-}
-
-#bottom-chat {
-    height: 7%;
-}
-
 .full {
     height: 100vh;
 }
 
-#Local {
-    position: fixed;
-    bottom: 0;
-}
-
-#Remote {
+.video-chat{
     position: fixed;
     bottom: 0;
 }
@@ -96,12 +77,6 @@ body {
     padding: 0;
     play: none;
 }
-
-#chatInput {
-    position: fixed;
-    bottom: 0;
-}
-
 
 /* ------------  Register Form ------------- */
 
@@ -154,43 +129,18 @@ body {
     color: #ccc;
 }
 
-::-moz-placeholder {
-    text-transform: uppercase;
-    color: #ccc;
-}
-
-:-ms-input-placeholder {
-    text-transform: uppercase;
-    color: #ccc;
-}
-
 #contentWrap {
     display: none;
     height: 100%;
 }
 
-#logout {
-    position: fixed;
-    bottom: 5em;
-    left: 85.5em;
-    padding: 15px 32px;
-}
-
 .sidenav {
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Stay on top */
     top: 0;
     left: 0;
     overflow-x: hidden;
-    /* Disable horizontal scroll */
-    transition: .5s;
-    /*second transition effect to slide in the sidenav */
 }
-
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
 @media screen and (max-width: 768px) {
     .sidenav {
@@ -199,10 +149,6 @@ body {
     }
     #open {
         display: block;
-    }
-
-    #video {
-        width: 55px;
     }
 
     #chatWrap {
@@ -218,11 +164,73 @@ body {
     }
 }
 
-@media screen and (min-width: 768px) {
-    #chatWrap {
-        display: block;
+/* MEDIA QUERIES CHAT HEIGHT */
+@media screen and (max-height: 800px) {
+    #top-chat{
+        height: 5%;
     }
-    #open {
-        display: none;
+
+    #chatmsg {
+        height: 88%;
+    }
+
+    #bottom-chat{
+        height: 7%;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    #top-chat{
+        height: 6%;
+    }
+
+    #chatmsg {
+        height: 86%;
+    }
+
+    #bottom-chat{
+        height: 8%;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    #top-chat{
+        height: 8%;
+    }
+
+    #chatmsg {
+        height: 82%;
+    }
+
+    #bottom-chat{
+        height: 10%;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    #top-chat{
+        height: 10%;
+    }
+
+    #chatmsg {
+        height: 75%;
+    }
+
+    #bottom-chat{
+        height: 15%;
+    }
+}
+
+@media screen and (max-height: 100px) {
+    #top-chat{
+        height: 18%;
+    }
+
+    #chatmsg {
+        height: 55%;
+    }
+
+    #bottom-chat{
+        height: 27%;
     }
 }

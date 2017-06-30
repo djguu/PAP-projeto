@@ -44,9 +44,9 @@ connection.onstream = function(event) {
     }
 };
 
-document.getElementById('video').onclick = function() {
+document.getElementById('video-img').onclick = function() {
     connection.openOrJoin('Pap-Room4');
-    $('#video').hide();
+    $('#video-img').hide();
 };
 /*
 document.getElementById('VideoChatLeave').onclick = function() {
