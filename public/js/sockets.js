@@ -1,11 +1,12 @@
 var socket = io();
-
+// $('#formWrapperFlex').hide();
+// $('#contentWrap').show();
 $('#setNick').submit(function(e) {
     e.preventDefault();
     if ($('#nickname').val() !== "") {
         socket.emit('new user', $('#nickname').val(), function(data) {
             if (data) {
-                $('#nickWrap').hide();
+                $('#formWrapperFlex').hide();
                 $('#contentWrap').show();
             }
         });
