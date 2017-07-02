@@ -13,6 +13,7 @@ if (!fs.existsSync('localhost.txt')) {
 var io = require('socket.io')(http);
 var Log = require('log');
 var log = new Log('debug');
+
 var nicknames = [];
 var colors = ['#99ccff', '#66d9ff', '#ccffcc', '#ffff66'];
 var usedColors = [];

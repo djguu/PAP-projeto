@@ -45,9 +45,10 @@ connection.onstream = function(event) {
 };
 
 document.getElementById('video-img').onclick = function() {
-    connection.openOrJoin('Pap-Room4');
+    connection.openOrJoin('Pap-Room5');
     $('#video-img').hide();
 };
+
 /*
 document.getElementById('VideoChatLeave').onclick = function() {
     connection.attachStreams.forEach(function(localStream) {

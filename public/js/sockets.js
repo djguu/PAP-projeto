@@ -1,6 +1,5 @@
 var socket = io();
-// $('#formWrapperFlex').hide();
-// $('#contentWrap').show();
+
 $('#setNick').submit(function(e) {
     e.preventDefault();
     if ($('#nickname').val() !== "") {
