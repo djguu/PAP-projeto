@@ -75,7 +75,6 @@ body {
     right: 0;
     margin: 0;
     padding: 0;
-    play: none;
 }
 
 /* ------------  Register Form ------------- */
@@ -142,6 +141,22 @@ body {
     overflow-x: hidden;
 }
 
+/* MEDIA QUERIES*/
+@media screen and (max-height: 800px) {
+    #top-chat{
+        height: 5%;
+    }
+
+    #chatmsg {
+        height: 88%;
+    }
+
+    #bottom-chat{
+        height: 7%;
+    }
+}
+
+/* MEDIA QUERY MOBILE*/
 @media screen and (max-width: 768px) {
     .sidenav {
         width: 0;
@@ -162,22 +177,20 @@ body {
     #chat {
         display: block;
     }
-}
 
-/* MEDIA QUERIES CHAT HEIGHT */
-@media screen and (max-height: 800px) {
-    #top-chat{
-        height: 5%;
+    .full{
+        height: 85vh;
     }
 
-    #chatmsg {
-        height: 88%;
+    #bb{
+        height: 85%
     }
 
     #bottom-chat{
-        height: 7%;
+        height:  10%;
     }
 }
+/*------------------*/
 
 @media screen and (max-height: 650px) {
     #top-chat{
@@ -189,9 +202,10 @@ body {
     }
 
     #bottom-chat{
-        height: 8%;
+        height: 10%;
     }
 }
+
 
 @media screen and (max-height: 500px) {
     #top-chat{
@@ -203,7 +217,7 @@ body {
     }
 
     #bottom-chat{
-        height: 10%;
+        height: 14%;
     }
 }
 
@@ -217,7 +231,7 @@ body {
     }
 
     #bottom-chat{
-        height: 15%;
+        height: 19%;
     }
 }
 
@@ -231,6 +245,6 @@ body {
     }
 
     #bottom-chat{
-        height: 27%;
+        height: 31%;
     }
 }

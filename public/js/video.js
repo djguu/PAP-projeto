@@ -33,7 +33,6 @@ connection.onstream = function(event) {
     } else {
         Remote.appendChild(video);
         var remote = document.getElementById(event.streamid);
-        // remote.height = (window.outerHeight - 50)/2;
         if ($(window).width() < 768) {
             remote.width = window.outerWidth;
         }

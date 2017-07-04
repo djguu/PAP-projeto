@@ -37,6 +37,11 @@ socket.on('usernames', function(data) {
     $('#user').html(html);
 });
 
+$('#mm').on("click",function(e){
+});
+// $('#mm').click(function(){
+//     socket.emit('teste',$('#').height())
+// })
 
 $('#bt').click(function() {
     $('#chatform').submit();

@@ -38,7 +38,6 @@ $(window).resize(function() {
     } else {
         sidenavClose();
         $('#open').css('display', 'block');
-        $('#chatWrap').css('display', 'none');
         if(document.getElementById("Remote").firstElementChild != null){
             document.getElementById("Remote").firstElementChild.width = window.outerWidth;
         }
