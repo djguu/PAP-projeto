@@ -36,7 +36,7 @@ app.use(express.static(__dirname + "/public"));
 
 //espera por uma coneção de um utilizador
 io.on('connection', function(socket) {
-    
+
     //atualiza a lista de utilizadores no site
     function updateNicknames() {
         io.emit('usernames', {
@@ -95,6 +95,7 @@ io.on('connection', function(socket) {
 
     //é ativo quando o utilizador sai da pagina.
     socket.on('disconnect', function(data) {
+        io.emit('off',true);
         if (!socket.nickname) return;
         log.info('Utilizador ', socket.nickname, ' saiu do chat');
         io.emit('status user', 'O utilizador ' + socket.nickname + ' saiu do chat');

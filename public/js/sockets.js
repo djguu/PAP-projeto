@@ -37,11 +37,11 @@ socket.on('usernames', function(data) {
     $('#user').html(html);
 });
 
-$('#mm').on("click",function(e){
+socket.on('off',function(date){
+    if(data){
+        $('#off').trigger("click");
+    }
 });
-// $('#mm').click(function(){
-//     socket.emit('teste',$('#').height())
-// })
 
 $('#bt').click(function() {
     $('#chatform').submit();

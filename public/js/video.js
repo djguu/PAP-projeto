@@ -44,16 +44,12 @@ connection.onstream = function(event) {
 };
 
 document.getElementById('video-img').onclick = function() {
-    connection.openOrJoin('Pap-Room6');
+    connection.openOrJoin('Pap-Room');
     $('#video-img').hide();
 };
 
-/*
-document.getElementById('VideoChatLeave').onclick = function() {
-    connection.attachStreams.forEach(function(localStream) {
-        localStream.stop();
-    });
+
+document.getElementById('off').onclick = function() {
     connection.close();
-    $('#VideoChatEnter').show();
-    $('#VideoChatLeave').hide();
-};*/
+    window.location.reload();
+};
