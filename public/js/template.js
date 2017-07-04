@@ -51,7 +51,6 @@ function Logout() {
 
 $(".minimize").click(function() {
     $("#chatWrap").slideToggle(350);
-    // document.getElementById("tt").style.display == "block";
     if (document.getElementById("tt").style.display == "block") {
         sidenavToggle();
     }

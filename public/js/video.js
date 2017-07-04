@@ -44,7 +44,7 @@ connection.onstream = function(event) {
 };
 
 document.getElementById('video-img').onclick = function() {
-    connection.openOrJoin('Pap-Room5');
+    connection.openOrJoin('Pap-Room6');
     $('#video-img').hide();
 };
 

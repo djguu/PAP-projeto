@@ -36,6 +36,7 @@ app.use(express.static(__dirname + "/public"));
 
 //espera por uma coneção de um utilizador
 io.on('connection', function(socket) {
+    
     //atualiza a lista de utilizadores no site
     function updateNicknames() {
         io.emit('usernames', {
